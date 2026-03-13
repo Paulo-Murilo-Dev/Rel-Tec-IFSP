@@ -1,4 +1,4 @@
-# Guia de Segurança Digital e Autodefesa Cibernética
+#  Repositório do Manual Técnico de Criação de Ambientes Seguros para Operações em Sistemas Digitais com Tails OS
 
 [![Licence: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
