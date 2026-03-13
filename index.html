@@ -220,33 +220,59 @@
             text-transform: uppercase;
         }
 
-        .academic-card {
-            background-color: var(--bg-grid);
+        .brutal-table-wrapper {
             border: 3px solid var(--text-navy);
             border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
             box-shadow: 6px 6px 0px var(--accent-blue);
+            overflow: hidden;
+            margin: 35px 0;
+            background-color: var(--card-bg);
         }
 
-        .academic-card h4 {
-            color: var(--accent-blue);
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+        .brutal-table-header {
+            background-color: var(--text-navy);
+            color: white;
+            padding: 16px 20px;
+            font-size: 1.2rem;
+            font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 3px solid var(--text-navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brutal-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .brutal-table tr:not(:last-child) {
             border-bottom: 2px dashed var(--text-navy);
-            padding-bottom: 10px;
         }
 
-        .academic-item {
-            margin-bottom: 12px;
+        .brutal-table td {
+            padding: 16px 20px;
             font-size: 1.1rem;
+            line-height: 1.4;
+            vertical-align: middle;
         }
 
-        .academic-item strong {
+        .brutal-table td.label {
+            font-weight: 900;
             color: var(--text-navy);
-            display: inline-block;
-            min-width: 180px;
+            width: 35%;
+            background-color: #f1f5f9;
+            border-right: 3px solid var(--text-navy);
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .brutal-table td.value {
+            color: var(--text-navy);
+            font-weight: 600;
         }
 
         .url-compare {
@@ -339,7 +365,12 @@
         @media (max-width: 850px) {
             .container { flex-direction: column; }
             .sidebar { width: 100%; position: static; }
-            .academic-item strong { display: block; min-width: auto; margin-bottom: 5px; }
+        }
+
+        @media (max-width: 768px) {
+            .brutal-table td { display: block; width: 100% !important; }
+            .brutal-table td.label { border-right: none; border-bottom: 2px solid var(--text-navy); }
+            .brutal-table td.value { padding-bottom: 25px; }
         }
     </style>
 </head>
@@ -363,11 +394,12 @@
             <div class="nav-group">
                 <div class="nav-title">Manual Tails OS</div>
                 <div class="nav-items">
-                    <div class="step-link" onclick="showStep('step1')">1. Preparação e Custódia</div>
+                    <div class="step-link" onclick="showStep('step1')">1. Preparação</div>
                     <div class="step-link" onclick="showStep('step2')">2. Gravação USB</div>
                     <div class="step-link" onclick="showStep('step3')">3. Inicialização (Boot)</div>
-                    <div class="step-link" onclick="showStep('step4')">4. Rede e Bridges</div>
-                    <div class="step-link" onclick="showStep('step5')">5. Usando o TailsOs</div>
+                    <div class="step-link" onclick="showStep('step4')">4. Welcome Screen</div>
+                    <div class="step-link" onclick="showStep('step5')">5. Conexão Tor & Bridges</div>
+                    <div class="step-link" onclick="showStep('step6')">6. Usando o TailsOs</div>
                 </div>
             </div>
         </nav>
@@ -376,37 +408,27 @@
             
             <section id="sobre" class="step-section active">
                 <h2>Bem-vindo(a) ao Projeto</h2>
+                <p><strong>Resumo do projeto</strong></p>
+                <P>Navegar na internet hoje significa deixar um rastro constante de informações e metadados. Sistemas operacionais convencionais, como o Windows e o macOS, são projetados para armazenar históricos e estados de sessão, o que acaba criando "mapas" que facilitam a ação de malwares e o roubo de dados. Para combater essa exposição, este manual ensina de forma prática como instalar o Tails OS. Executado inteiramente a partir de um pendrive (direto na memória RAM), o Tails é um sistema amnésico: ele não deixa rastros no disco rígido do computador e destrói qualquer código malicioso assim que a máquina é desligada.</p>
                 
-                <p>A internet contemporânea mudou. O que antes era um espaço de exploração anônima, hoje opera sob a lógica constante do rastreamento de dados, mineração de comportamento e industrialização do cibercrime. Nesse cenário, estar seguro não é mais um capricho, é uma necessidade estrutural.</p>
+                <p><strong>Créditos</strong></p>
+                <p>Todo o conteúdo técnico aqui apresentado encontra-se em domínio público e pode ser utilizado livremente. Ressalta-se, contudo, que todas as inspirações para o desenvolvimento desse website (paleta de cores e estilo visual) foram baseados no trabalho do <a href="https://www.canva.com/p/portograph/" target="_blank" rel="noopener noreferrer">Portograph Studio</a> (que também foram os criadores das artes da cartilha). Estas obras estão protegidas sob a licença Creative Commons (CC) para uso estritamente não comercial, sendo todos os direitos reservados aos respectivos criadores.</p>
                 
-                <p>Este portal é o ambiente visual de uma pesquisa aplicada e focada em democratizar o acesso à cibersegurança e à privacidade digital no Brasil. Nosso objetivo é apresentar soluções de proteção através de duas frentes complementares: a conscientização humana contra a engenharia social (Cartilha) e o isolamento técnico computacional através de sistemas amnésicos (Manual Tails OS).</p>
-
-                <div class="academic-card">
-                    <h4>Informações do Trabalho Técnico</h4>
-                    <div class="academic-item">
-                        <strong>Autor:</strong> Paulo Murilo Matielo de Oliveira
+                <div class="brutal-table-wrapper">
+                    <div class="brutal-table-header">
+                        <span>📄</span> Informações do Trabalho Técnico
                     </div>
-                    <div class="academic-item">
-                        <strong>Título do Projeto:</strong> Manual Técnico de Criação de Ambientes Seguros para Operações em Sistemas Digitais com Tails OS
-                    </div>
-                    <div class="academic-item">
-                        <strong>Instituição:</strong> Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP) - Câmpus São João da Boa Vista
-                    </div>
-                    <div class="academic-item">
-                        <strong>Formação:</strong> Tecnólogo em Análise e Desenvolvimento de Sistemas
-                    </div>
-                    <div class="academic-item">
-                        <strong>Área de Concentração:</strong> Cibersegurança e Privacidade Digital
-                    </div>
-                    <div class="academic-item">
-                        <strong>Orientador:</strong> Prof. Dr. Diego Cesar Valente e Silva
-                    </div>
-                    <div class="academic-item">
-                        <strong>Ano de Apresentação:</strong> 2025
-                    </div>
+                    <table class="brutal-table">
+                        <tbody>
+                            <tr><td class="label">Autor</td><td class="value">Paulo Murilo Matielo de Oliveira</td></tr>
+                            <tr><td class="label">Título do Projeto</td><td class="value">Manual Técnico de Criação de Ambientes Seguros para Operações em Sistemas Digitais com Tails OS</td></tr>
+                            <tr><td class="label">Instituição</td><td class="value">Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP)</td></tr>
+                            <tr><td class="label">Área de Concentração</td><td class="value">Cibersegurança e Privacidade Digital</td></tr>
+                            <tr><td class="label">Orientador</td><td class="value">Prof. Dr. Diego Cesar Valente e Silva</td></tr>
+                            <tr><td class="label">Ano</td><td class="value">2026</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-
-                <p>O trabalho, estruturado conforme as normas ABNT (NBR 10719:10), parte do princípio de que um sistema amnésico blindado de nada serve se o usuário for persuadido a entregar seus dados voluntariamente. Navegue pelo menu lateral para explorar a teoria através da cartilha e colocar a mão na massa com o manual técnico de implementação.</p>
 
                 <div class="nav-buttons">
                     <div></div>
@@ -422,24 +444,22 @@
                 <ul>
                     <li>Falsos portais de concursos e vagas de emprego.</li>
                     <li>Golpes direcionados a servidores públicos e PJs (cobranças falsas de DAS/MEI).</li>
-                    <li>Táticas de intimidação usando visualização única no WhatsApp.</li>
+                    <li>Táticas de intimidação de vitimas por mensagens.</li>
                 </ul>
 
                 <div class="download-card">
                     <h4>Faça o download do material visual</h4>
                     <p>Distribua em campanhas de prevenção ou utilize como material de apoio.</p>
-                    <a href="#" class="btn download">Baixar Cartilha (PDF)</a>
+                    <a href="cartilha.pdf" class="btn download">Baixar Cartilha (PDF)</a>
                 </div>
             </section>
 
             <section id="tcc" class="step-section">
                 <h2>O Trabalho de Conclusão</h2>
                 <p><strong>Título:</strong> Manual Técnico de Criação de Ambientes Seguros para Operações em Sistemas Digitais com Tails OS.</p>
-                <p><strong>Autor:</strong> Paulo Murilo Matielo de Oliveira</p>
                 
                 <h3>Resumo da Pesquisa</h3>
                 <p>O aumento da exposição de dados pessoais em ambientes conectados tem tornado a segurança digital um requisito essencial. Nesse contexto, o sistema Tails OS se destaca por adotar uma arquitetura voltada à privacidade e à não persistência de informações (amnésia).</p>
-                
                 <p>O trabalho busca validar, através de testes rigorosos, como práticas de mitigação reduzem a superfície de ataque frente à industrialização do cibercrime e vazamentos em massa de informações ocorridos em plataformas corporativas e governamentais.</p>
 
                 <div class="download-card" style="border-color: var(--text-navy);">
@@ -456,35 +476,24 @@
                 <h3>Obtendo a Imagem</h3>
                 <ol>
                     <li>Acesse o site oficial preferencialmente via <strong>Tor Browser</strong>.</li>
-                    <li>Baixe a <strong>Imagem USB (.img)</strong> correspondente à arquitetura do seu hardware.</li>
+                    <li>Baixe a <strong>Imagem USB (.ISO)</strong> correspondente à arquitetura do seu hardware.</li>
                 </ol>
 
                 <div class="tip-balloon">
                     <strong>Cuidado com Fontes Falsas</strong>
-                    Assim como nos golpes de "falsos concursos" e "lojas de redes sociais", criminosos criam sites idênticos aos oficiais mudando apenas uma letra no domínio. Sempre confira a URL antes de baixar qualquer ferramenta de segurança.
-                    
+                    Criminosos criam sites idênticos aos oficiais mudando apenas uma letra no domínio. Sempre confira a URL.
                     <div class="url-compare">
-                        <div class="url-box real">
-                            <span>URL Oficial Correta</span>
-                            https://tails.net
-                        </div>
-                        <div class="url-box fake">
-                            <span>URL Falsa (Golpe)</span>
-                            https://talis.net
-                        </div>
+                        <div class="url-box real"><span>URL Oficial Correta</span>https://tails.net</div>
+                        <div class="url-box fake"><span>URL Falsa (Golpe)</span>https://talis.net</div>
                     </div>
                 </div>
 
                 <h3>Verificação Criptográfica</h3>
-                <p>Nunca grave um sistema amnésico sem antes atestar sua integridade. Para facilitar, o Tails possui um verificador automático no próprio site.</p>
+                <p>Nunca grave um sistema amnésico sem antes atestar sua integridade.</p>
                 <ul>
-                    <li>Acesse a página de verificação oficial: <a href="https://tails.net/install/windows/index.pt.html#verify" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); font-weight: bold;">Verificar o download do Tails</a>.</li>
-                    <li>Clique no botão <strong>"Verificar o Tails"</strong> (ou <em>Verify Tails</em>) na página.</li>
-                    <li>Selecione o arquivo da <strong>Imagem USB (.img)</strong> que você acabou de baixar.</li>
-                    <li>Aguarde o site fazer a checagem. Ele confirmará na tela se o arquivo é autêntico e seguro para uso.</li>
+                    <li>Acesse a página de verificação oficial: <a href="https://tails.net/install/windows/index.pt.html#verify" target="_blank" style="color: var(--accent-blue); font-weight: bold;">Verificar Tails</a>.</li>
+                    <li>Clique no botão <strong>"Verificar o Tails"</strong> e selecione a imagem <code>.ISO</code> baixada.</li>
                 </ul>
-
-                <img src="download.png" alt="Print do monitor - Verificação" class="brutal-img">
 
                 <div class="nav-buttons">
                     <div></div>
@@ -492,18 +501,16 @@
                 </div>
             </section>
 
-            <section id="step2" class="step-section">
+           <section id="step2" class="step-section">
                 <h2>2. Gravação no Pendrive</h2>
                 <p>O Tails não se instala no disco rígido; ele roda em modo <em>Live</em> direto da memória RAM. Precisamos gravá-lo num pendrive USB 3.0 de no mínimo 8GB.</p>
-
+                
                 <ol>
-                    <li>Baixe e instale a ferramenta <a href="https://etcher.balena.io/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-blue); font-weight: bold;">balenaEtcher clicando aqui</a>.</li> 
-                    <li>Selecione <strong>Flash from file</strong> e escolha a imagem <code>.img</code> validada.</li>
-                    <li>Escolha a unidade do seu pendrive em <strong>Select target</strong>. (Cuidado: Tudo no pendrive será apagado).</li>
-                    <li>Clique em <strong>Flash!</strong>. Ignore mensagens do Windows pedindo para formatar ao final.</li>
+                    <li>Baixe e instale a ferramenta <a href="https://etcher.balena.io/" target="_blank" style="color: var(--accent-blue); font-weight: bold;">balenaEtcher</a>.</li> 
+                    <li>Selecione <strong>Flash from file</strong> e escolha a imagem validada.</li>
+                    <li>Escolha a unidade do seu pendrive em <strong>Select target</strong>. (Tudo no pendrive será apagado).</li>
+                    <li>Clique em <strong>Flash!</strong>.</li>
                 </ol>
-
-                <img src="balena.png" alt="Print do monitor - Gravação" class="brutal-img" style="border-color: var(--accent-pink); box-shadow: 4px 4px 0px var(--accent-pink);">
 
                 <div class="nav-buttons">
                     <button class="btn" onclick="showStep('step1')">&larr; Voltar</button>
@@ -517,14 +524,13 @@
 
                 <ol>
                     <li>Conecte o pendrive e reinicie a máquina.</li>
-                    <li>Pressione repetidamente a tecla da <strong>BIOS/UEFI</strong> (F2, F12, F8 ou DEL).</li>
-                    <li>Selecione a unidade USB no menu de inicialização.</li>
-                    <li><em>Aviso:</em> Pode ser necessário desativar o "Secure Boot" na BIOS.</li>
+                    <li>Pressione repetidamente a tecla da <strong>BIOS/UEFI</strong> (Geralmente F2, F12, F8 ou DEL).</li>
+                    <li>Selecione a unidade USB no menu de inicialização (Boot Menu).</li>
                 </ol>
 
                 <div class="tip-balloon" style="border-color: var(--accent-blue); box-shadow: 4px 4px 0px var(--accent-blue);">
-                    <strong>O Perigo de Computadores Compartilhados</strong>
-                    Se você não puder usar o Tails e precisar usar o PC de uma faculdade ou lan house, use sempre a "Janela Anônima" e nunca clique em "Salvar senha". Um PC compartilhado é uma peneira: você não sabe quem instalou o que ali.
+                    <strong>Aviso de Segurança (Secure Boot)</strong>
+                    Na maioria dos computadores modernos, você precisará entrar nas configurações da BIOS e desativar uma opção chamada "Secure Boot" (Boot Seguro) para que o Windows permita que um pendrive Linux inicie.
                 </div>
 
                 <div class="nav-buttons">
@@ -534,18 +540,30 @@
             </section>
 
             <section id="step4" class="step-section">
-                <h2>4. Welcome Screen e Bridges</h2>
-                <p>Antes de carregar a interface final, o Tails exibe a Tela de Boas-Vindas. É aqui que você define suas regras de engajamento.</p>
+                <h2>4. Welcome Screen (O "Next Next")</h2>
+                <p>Diferente do Windows, o Tails não salva suas preferências automaticamente. Toda vez que o sistema iniciar, você verá a <strong>Welcome Screen</strong> (Tela de Boas-Vindas) antes de acessar a área de trabalho. É aqui que você define as "regras do jogo" para a sessão atual.</p>
 
+                <h3>Configurações de Idioma e Teclado</h3>
+                <p>Na parte superior esquerda da tela, você deve ajustar suas preferências regionais para não ter problemas ao digitar:</p>
                 <ul>
-                    <li><strong>Idioma:</strong> Ajuste para "Portuguese (Brazil)".</li>
-                    <li><strong>Amnésia:</strong> Não ative o armazenamento persistente a menos que estritamente necessário.</li>
+                    <li><strong>Language (Idioma):</strong> Altere para "Portuguese (Brazil)". O sistema recarregará a tela para português.</li>
+                    <li><strong>Keyboard Layout (Teclado):</strong> Certifique-se de que está configurado para o padrão do seu computador (ex: ABNT2).</li>
+                    <li><strong>Formats (Formatos):</strong> Define como data e hora serão exibidas.</li>
                 </ul>
 
-                <div class="tip-balloon" style="border-color: var(--accent-green); box-shadow: 4px 4px 0px var(--accent-green);">
-                    <strong>Disfarçando o seu acesso (Bridges)</strong>
-                    Algumas redes (como o Wi-Fi da faculdade ou da empresa) percebem que você está usando o Tails e bloqueiam a sua conexão. Para resolver isso, clique no botão "+" na tela inicial e ative a opção "Bridge" (Ponte). Isso funciona como um disfarce: faz com que a sua navegação privada pareça apenas alguém acessando sites comuns na internet, enganando o bloqueio da rede. Você pode encontrar mais informações sobre Bridges <a href="https://bridges.torproject.org/" target="_blank">aqui</a>.
+                <h3>Configurações Adicionais (O Botão "+")</h3>
+                <p>No canto inferior esquerdo, existe um botão de <strong>"+" (Additional Settings)</strong>. Ele é crucial para a segurança avançada da sessão. Ao clicar nele, você pode configurar:</p>
+                <ul>
+                    <li><strong>Administration Password (Senha de Administrador):</strong> O Tails bloqueia a instalação de novos programas por padrão. Se você precisar instalar um pacote específico ou abrir o terminal em modo <em>Root</em>, ative essa opção e crie uma senha temporária. (Ao desligar o PC, ela será esquecida).</li>
+                    <li><strong>MAC Address Spoofing:</strong> Por padrão, o Tails falsifica (mascara) o endereço físico da sua placa de rede Wi-Fi/Ethernet. Isso impede que o roteador saiba qual marca/modelo de computador você está usando. Se a sua rede local exigir um "cadastro de equipamento" (comum em faculdades), você pode desativar essa opção aqui para conseguir conectar.</li>
+                </ul>
+
+                <div class="tip-balloon" style="border-color: var(--accent-pink); box-shadow: 4px 4px 0px var(--accent-pink);">
+                    <strong>Persistent Storage (Armazenamento Persistente)</strong>
+                    Se você criou uma pasta criptografada persistente no pendrive em uma sessão anterior, é nesta mesma tela (na coluna da direita) que você deve digitar a sua senha mestra para desbloqueá-la <strong>antes</strong> de clicar em "Iniciar o Tails".
                 </div>
+
+                <p>Após revisar essas opções, clique no grande botão azul <strong>"Start Tails" (Iniciar o Tails)</strong> no canto superior direito.</p>
 
                 <div class="nav-buttons">
                     <button class="btn" onclick="showStep('step3')">&larr; Voltar</button>
@@ -554,22 +572,53 @@
             </section>
 
             <section id="step5" class="step-section">
-                <h2>5. Usando o Tails</h2>
-                <p>Parabéns! seu TailsOS está pronto para ser utilizado!</p>
-                <p>Mas antes, pare e pense bem em cada ação realizada, o ambiente está seguro, mas o fator humano é o elo mais fraco. Cumpra a Ciber-Higiene:</p>
+                <h2>5. Conexão Tor & Bridges</h2>
+                <p>Após clicar em "Iniciar o Tails" na tela anterior, a área de trabalho carregará. O Tails não permite <strong>nenhuma</strong> comunicação com a internet que não passe pela rede Tor. Portanto, o próximo assistente a aparecer será o <strong>Tor Connection (Conexão Tor)</strong>.</p>
 
-                <ul>
-                    <li><strong>Não misture identidades:</strong> Nunca acesse seu e-mail pessoal ou banco de dentro do Tails. Isso vincula o seu IP anônimo à sua identidade civil instantaneamente.</li>
-                    <li><strong>Cuidado com extensões:</strong> O Tor Browser já vem configurado. Não instale extensões extras, pois elas podem capturar cookies e comprometer sua sessão.</li>
-                </ul>
+                <h3>O Processo de Conexão</h3>
+                <ol>
+                    <li>Conecte-se à rede Wi-Fi local clicando no ícone de rede no canto superior direito (ou insira o cabo de rede).</li>
+                    <li>A janela "Connect to Tor" oferecerá duas opções principais:</li>
+                </ol>
 
-                <div class="tip-balloon" style="border-color: var(--accent-red); box-shadow: 4px 4px 0px var(--accent-red);">
-                    <strong>Atenção aos Metadados (EXIF)</strong>
-                    Toda foto guarda informações invisíveis, como modelo do celular e GPS de onde você estava. Antes de compartilhar qualquer arquivo gerado no sistema, use o aplicativo nativo: "Metadata Cleaner" para purgar esses dados e evitar que estranhos mal intencionados descubram sua localização.
+                <div class="brutal-box" style="padding: 20px; margin: 20px 0; background-color: #f8fafc;">
+                    <h4 style="color: var(--text-navy); margin-bottom: 10px;">Opção 1: Connect to Tor automatically (Automático)</h4>
+                    <p>Use esta opção na sua casa ou em redes públicas comuns (cafés, shoppings). O sistema fará todo o roteamento pesado por conta própria. Se der certo, a janela confirmará "Connected to Tor successfully".</p>
+                </div>
+
+                <div class="brutal-box" style="padding: 20px; margin: 20px 0; background-color: #fdf2f8; border-color: var(--accent-pink);">
+                    <h4 style="color: var(--accent-red); margin-bottom: 10px;">Opção 2: Hide to my local network that I'm connecting to Tor (Bridges)</h4>
+                    <p>Use esta opção se você estiver em um país com forte censura ou em uma rede corporativa/universitária que bloqueie o acesso ao Tor. Ao marcar isso, o Tails pedirá que você configure uma <strong>Bridge (Ponte)</strong>.</p>
+                </div>
+
+                <div class="tip-balloon" style="border-color: var(--accent-green); box-shadow: 4px 4px 0px var(--accent-green);">
+                    <strong>Entendendo as Bridges</strong>
+                    Seu provedor de internet (ou a TI da sua empresa) consegue ver que você se conectou à rede Tor (embora não saibam o que você está acessando lá dentro). Se eles bloquearem esse acesso, a Bridge entra em ação: ela disfarça o seu tráfego, fazendo parecer que você está apenas navegando em um site comum (HTTPS) em vez de usar o Tor. Para obter uma Bridge, basta seguir os passos na própria tela do assistente para receber uma por e-mail ou solicitar ao próprio sistema Tails.
                 </div>
 
                 <div class="nav-buttons">
                     <button class="btn" onclick="showStep('step4')">&larr; Voltar</button>
+                    <button class="btn primary" onclick="showStep('step6')">Próximo Passo &rarr;</button>
+                </div>
+            </section>
+
+            <section id="step6" class="step-section">
+                <h2>6. Usando o Tails</h2>
+                <p>Parabéns! O ícone de cebola na barra superior confirmou a conexão. Seu Tails OS está pronto e blindado!</p>
+                <p>Mas lembre-se: o ambiente está seguro, mas o fator humano é o elo mais fraco. Cumpra as regras de Ciber-Higiene:</p>
+
+                <ul>
+                    <li><strong>Não misture identidades:</strong> Nunca acesse seu e-mail pessoal, redes sociais abertas ou banco de dentro do Tails. Isso vincula o seu IP protegido à sua identidade civil instantaneamente.</li>
+                    <li><strong>Cuidado com extensões:</strong> O Tor Browser já vem configurado de fábrica para máxima segurança. Não instale extensões extras, pois elas modificam o "fingerprint" do seu navegador e podem comprometer sua sessão.</li>
+                </ul>
+
+                <div class="tip-balloon" style="border-color: var(--accent-red); box-shadow: 4px 4px 0px var(--accent-red);">
+                    <strong>Atenção aos Metadados (EXIF)</strong>
+                    Toda foto guarda informações invisíveis, como modelo do celular e coordenadas de GPS. Antes de enviar qualquer arquivo gerado fora do Tails, abra a pasta "Applications" e use o software <strong>Metadata Cleaner (MAT2)</strong>. Ele vai "limpar" o arquivo, evitando que estranhos descubram informações sobre o seu hardware ou localização original.
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn" onclick="showStep('step5')">&larr; Voltar</button>
                 </div>
             </section>
 
