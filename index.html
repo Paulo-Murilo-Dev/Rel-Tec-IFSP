@@ -181,6 +181,7 @@
         p, li {
             font-size: 1.1rem;
             margin-bottom: 15px;
+            text-align: justify;
         }
 
         ul, ol {
@@ -413,7 +414,7 @@
                 
                 <p><strong>Créditos</strong></p>
                 <p>Todo o conteúdo técnico aqui apresentado encontra-se em domínio público e pode ser utilizado livremente. Ressalta-se, contudo, que todas as inspirações para o desenvolvimento desse website (paleta de cores e estilo visual) foram baseados no trabalho do <a href="https://www.canva.com/p/portograph/" target="_blank" rel="noopener noreferrer">Portograph Studio</a> (que também foram os criadores das artes da cartilha). Estas obras estão protegidas sob a licença Creative Commons (CC) para uso estritamente não comercial, sendo todos os direitos reservados aos respectivos criadores.</p>
-                
+                <p>Um agradecimento especial também ao time de desenvolvimento do TailsOS e ao time de desenvolvimento do The Tor Project, que desenvolveram esses projetos incríveis e que continuam melhorando-o dia após dia, vocês são uma inspiração para mim e para muitos desenvolvedores. Algumas imagens da documentação foram ultilizadas para fins não comerciais e pedagógicos ao criar esse manual, todas estão devidamente destacadas com legendas de não pertencimento ao autor.</p>
                 <div class="brutal-table-wrapper">
                     <div class="brutal-table-header">
                         <span>📄</span> Informações do Trabalho Técnico
@@ -421,7 +422,7 @@
                     <table class="brutal-table">
                         <tbody>
                             <tr><td class="label">Autor</td><td class="value">Paulo Murilo Matielo de Oliveira</td></tr>
-                            <tr><td class="label">Título do Projeto</td><td class="value">Manual Técnico de Criação de Ambientes Seguros para Operações em Sistemas Digitais com Tails OS</td></tr>
+                            <tr><td class="label">Título do Projeto</td><td class="value">Criação de Um Ambiente Seguro para Operações em Sistemas Digitais com Tails OS</td></tr>
                             <tr><td class="label">Instituição</td><td class="value">Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP)</td></tr>
                             <tr><td class="label">Área de Concentração</td><td class="value">Cibersegurança e Privacidade Digital</td></tr>
                             <tr><td class="label">Orientador</td><td class="value">Prof. Dr. Diego Cesar Valente e Silva</td></tr>
@@ -456,7 +457,7 @@
 
             <section id="tcc" class="step-section">
                 <h2>O Trabalho de Conclusão</h2>
-                <p><strong>Título:</strong> Manual Técnico de Criação de Ambientes Seguros para Operações em Sistemas Digitais com Tails OS.</p>
+                <p><strong>Título:</strong> Criação de Um Ambiente Seguro para Operações em Sistemas Digitais com Tails OS.</p>
                 
                 <h3>Resumo da Pesquisa</h3>
                 <p>O aumento da exposição de dados pessoais em ambientes conectados tem tornado a segurança digital um requisito essencial. Nesse contexto, o sistema Tails OS se destaca por adotar uma arquitetura voltada à privacidade e à não persistência de informações (amnésia).</p>
@@ -465,11 +466,12 @@
                 <div class="download-card" style="border-color: var(--text-navy);">
                     <h4>Acesse o Documento Completo</h4>
                     <p>Contém toda a fundamentação teórica, modelagem de ameaças e a execução dos testes comparativos de tráfego de rede.</p>
-                    <a href="#" class="btn download" style="background-color: var(--text-navy);">Baixar Relatório Técnico (PDF)</a>
+                    <a href="tcc.pdf'" class="btn download" style="background-color: var(--text-navy);">Baixar Relatório Técnico (PDF)</a>
                 </div>
             </section>
 
             <section id="step1" class="step-section">
+     
                 <h2>1. Preparação e Custódia</h2>
                 <p>A integridade da imagem do sistema é a fundação da sua segurança. Um sistema comprometido na origem anula todas as defesas posteriores.</p>
                 
@@ -494,6 +496,8 @@
                     <li>Acesse a página de verificação oficial: <a href="https://tails.net/install/windows/index.pt.html#verify" target="_blank" style="color: var(--accent-blue); font-weight: bold;">Verificar Tails</a>.</li>
                     <li>Clique no botão <strong>"Verificar o Tails"</strong> e selecione a imagem <code>.ISO</code> baixada.</li>
                 </ul>
+               <img src="download.png" alt="Print do monitor - Gravação" class="brutal-img" style="border-color: var(--accent-pink); box-shadow: 4px 4px 0px var(--accent-pink);">
+
 
                 <div class="nav-buttons">
                     <div></div>
@@ -511,6 +515,8 @@
                     <li>Escolha a unidade do seu pendrive em <strong>Select target</strong>. (Tudo no pendrive será apagado).</li>
                     <li>Clique em <strong>Flash!</strong>.</li>
                 </ol>
+                <img src="balena.png" alt="Print do monitor - Gravação" class="brutal-img" style="border-color: var(--accent-pink); box-shadow: 4px 4px 0px var(--accent-pink);">
+
 
                 <div class="nav-buttons">
                     <button class="btn" onclick="showStep('step1')">&larr; Voltar</button>
@@ -527,11 +533,16 @@
                     <li>Pressione repetidamente a tecla da <strong>BIOS/UEFI</strong> (Geralmente F2, F12, F8 ou DEL).</li>
                     <li>Selecione a unidade USB no menu de inicialização (Boot Menu).</li>
                 </ol>
+               
+             <img src="boot.png" alt="Print do monitor - Gravação" class="brutal-img" style="border-color: var(--accent-pink); box-shadow: 4px 4px 0px var(--accent-pink);">
+ <label>Imagem retirada da documentação oficial do Tails
+                </label>
 
                 <div class="tip-balloon" style="border-color: var(--accent-blue); box-shadow: 4px 4px 0px var(--accent-blue);">
                     <strong>Aviso de Segurança (Secure Boot)</strong>
                     Na maioria dos computadores modernos, você precisará entrar nas configurações da BIOS e desativar uma opção chamada "Secure Boot" (Boot Seguro) para que o Windows permita que um pendrive Linux inicie.
                 </div>
+                
 
                 <div class="nav-buttons">
                     <button class="btn" onclick="showStep('step2')">&larr; Voltar</button>
@@ -540,9 +551,11 @@
             </section>
 
             <section id="step4" class="step-section">
-                <h2>4. Welcome Screen (O "Next Next")</h2>
+                <h2>4. Welcome Screen</h2>
                 <p>Diferente do Windows, o Tails não salva suas preferências automaticamente. Toda vez que o sistema iniciar, você verá a <strong>Welcome Screen</strong> (Tela de Boas-Vindas) antes de acessar a área de trabalho. É aqui que você define as "regras do jogo" para a sessão atual.</p>
-
+                <img src="well.png" alt="Print do monitor - Gravação" class="brutal-img" style="border-color: var(--accent-pink); box-shadow: 4px 4px 0px var(--accent-pink);">
+ <label>Imagem retirada da documentação oficial do Tails
+                </label>
                 <h3>Configurações de Idioma e Teclado</h3>
                 <p>Na parte superior esquerda da tela, você deve ajustar suas preferências regionais para não ter problemas ao digitar:</p>
                 <ul>
@@ -555,12 +568,11 @@
                 <p>No canto inferior esquerdo, existe um botão de <strong>"+" (Additional Settings)</strong>. Ele é crucial para a segurança avançada da sessão. Ao clicar nele, você pode configurar:</p>
                 <ul>
                     <li><strong>Administration Password (Senha de Administrador):</strong> O Tails bloqueia a instalação de novos programas por padrão. Se você precisar instalar um pacote específico ou abrir o terminal em modo <em>Root</em>, ative essa opção e crie uma senha temporária. (Ao desligar o PC, ela será esquecida).</li>
-                    <li><strong>MAC Address Spoofing:</strong> Por padrão, o Tails falsifica (mascara) o endereço físico da sua placa de rede Wi-Fi/Ethernet. Isso impede que o roteador saiba qual marca/modelo de computador você está usando. Se a sua rede local exigir um "cadastro de equipamento" (comum em faculdades), você pode desativar essa opção aqui para conseguir conectar.</li>
                 </ul>
 
                 <div class="tip-balloon" style="border-color: var(--accent-pink); box-shadow: 4px 4px 0px var(--accent-pink);">
                     <strong>Persistent Storage (Armazenamento Persistente)</strong>
-                    Se você criou uma pasta criptografada persistente no pendrive em uma sessão anterior, é nesta mesma tela (na coluna da direita) que você deve digitar a sua senha mestra para desbloqueá-la <strong>antes</strong> de clicar em "Iniciar o Tails".
+                    Se você criou uma pasta criptografada persistente no pendrive em uma sessão anterior, é nesta mesma tela (na coluna da direita) que você deve digitar a sua senha mestra para desbloqueá-la antes de clicar em "Iniciar o Tails".
                 </div>
 
                 <p>Após revisar essas opções, clique no grande botão azul <strong>"Start Tails" (Iniciar o Tails)</strong> no canto superior direito.</p>
@@ -614,12 +626,25 @@
 
                 <div class="tip-balloon" style="border-color: var(--accent-red); box-shadow: 4px 4px 0px var(--accent-red);">
                     <strong>Atenção aos Metadados (EXIF)</strong>
-                    Toda foto guarda informações invisíveis, como modelo do celular e coordenadas de GPS. Antes de enviar qualquer arquivo gerado fora do Tails, abra a pasta "Applications" e use o software <strong>Metadata Cleaner (MAT2)</strong>. Ele vai "limpar" o arquivo, evitando que estranhos descubram informações sobre o seu hardware ou localização original.
+                    Toda foto guarda informações invisíveis, como modelo do celular e coordenadas de GPS. Antes de enviar qualquer arquivo gerado fora do Tails, abra a pasta "Applications" e use o software Metadata Cleaner (MAT2). Ele vai "limpar" o arquivo, evitando que estranhos descubram informações sobre o seu hardware ou localização original.
                 </div>
-
+           <div class="tip-balloon" style="border: 3px solid var(--text-navy); background-color: var(--accent-blue); color: white; box-shadow: 8px 8px 0px var(--accent-red); margin-top: 50px;">
+    <strong style="color: white; font-size: 1.4rem; letter-spacing: 1px;">Precisa de ajuda extra?</strong>
+    <p style="margin-top: 10px; font-weight: 500;">
+        Embora este guia cubra os passos fundamentais, o Tails OS é um sistema complexo e em constante atualização. 
+        Se você encontrar qualquer comportamento inesperado ou tiver dúvidas técnicas específicas, consulte sempre a 
+        documentação oficial do Tails OS.
+    </p>
+    <div style="margin-top: 20px;">
+        <a href="https://tails.net/install/windows/index.pt.html" target="_blank" class="btn" style="background-color: var(--accent-green); color: var(--text-navy); text-decoration: none; border-width: 3px;">
+            Acessar Documentação Oficial ↗
+        </a>
+    </div>
+</div>
                 <div class="nav-buttons">
                     <button class="btn" onclick="showStep('step5')">&larr; Voltar</button>
                 </div>
+                
             </section>
 
         </main>
