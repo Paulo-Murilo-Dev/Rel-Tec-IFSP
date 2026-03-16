@@ -16,7 +16,9 @@ O aumento da exposição de dados pessoais e a industrialização do cibercrime 
 
 1. **A Cartilha de Consciencialização:** Focada na mitigação de falhas humanas, ensinando o utilizador comum a identificar ataques de Engenharia Social, *phishing*, falsos portais de emprego e esquemas fraudulentos comuns.
 2. **O Manual Técnico (Tails OS):** Um guia passo-a-passo para a criação de um ambiente computacional seguro e isolado, utilizando o sistema operativo amnésico Tails OS.
+3. **O Relatório Técnico (O TCC):** Um relatório técnico desenvolvido para o curso de graduação de tecnologia em sistemas para a internet com 5 testes práticos de cybersegurança validando o TailsOs.
 
 ## 🚀 Como Executar o Projeto
 
 O projeto está disponível no Github Pages para a visualização!
+Acesse o link: https://paulo-murilo-dev.github.io/Rel-Tec-IFSP/
